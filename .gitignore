@@ -1,0 +1,17 @@
+venv
+build
+dist
+data
+docs
+temp
+back
+
+*chrome*
+
+
+*.pyc
+*.spec
+*.zip
+*.log*
+*.xls
+*.json
