@@ -1,0 +1,69 @@
+DRIVER_MILESTONE=https://googlechromelabs.github.io/chrome-for-testing/latest-versions-per-milestone.json
+DRIVER_DOWNLOAD=https://storage.googleapis.com/chrome-for-testing-public/{driver_version}/win64/chromedriver-win64.zip
+# Global Elements
+NFSE_SITE=https://www.nfse.gov.br
+NFSE_LOAD=#modalLoading
+NFSE_SEARCH=//*[contains(@class, 'select2-search__field')]
+NFSE_OPTION=//*[contains(@class, 'select2-results__option')]
+# Page 'Login'
+AUTH_SITE=https://www.nfse.gov.br/EmissorNacional/Login
+AUTH_LOGIN=#Inscricao
+AUTH_PASSWD=#Senha
+AUTH_BUTTON=.btn-primary
+# Page 'People'
+EMIT_SITE=https://www.nfse.gov.br/EmissorNacional/DPS/Pessoas
+EMIT_COMPETENCIA=#DataCompetencia
+EMIT_HEADER=navbar-header
+EMIT_EMITENTE_RDB=//*[@name='TipoEmitente']
+EMIT_TOMADOR_RDB=//*[@name='Tomador.LocalDomicilio']/../span/i
+EMIT_TOMADOR_BTN=#btn_Tomador_Inscricao_historico
+EMIT_TOMADOR_LIST_ROW=//*[contains(@class, 'tabela-favoritos')]/tbody/tr
+EMIT_TOMADOR_LIST_TXT=//*[contains(@class, 'tabela-favoritos')]/tbody/tr[?]/td[3]/div
+EMIT_TOMADOR_LIST_RDB=//*[contains(@class, 'tabela-favoritos')]/tbody/tr[?]/td[1]/div
+EMIT_TOMADOR_IMPORT_BTN=#btnImportar
+EMIT_INTERMEDIARIO=//*[@name='Intermediario_LocalDomicilio']
+EMIT_AVANCAR=#btnAvancar
+# Page 'Service'
+SERV_NACAO=#LocalPrestacao_CodigoPaisPrestacao
+SERV_NACAO_OPT=//*[@id='LocalPrestacao_CodigoPaisPrestacao_chosen']/div/ul/li
+SERV_ESTADO=//*[@aria-labelledby='select2-LocalPrestacao_CodigoMunicipioPrestacao-container']
+SERV_CODIGO=//*[@aria-labelledby='select2-ServicoPrestado_CodigoTributacaoNacional-container']
+SERV_ADICIONAL=#ServicoPrestado_CodigoComplementarMunicipal_chosen
+SERV_ADICIONAL_OPT=//*[@id='ServicoPrestado_CodigoComplementarMunicipal_chosen']/div/ul/li
+SERV_ISSQN=//*[@name='ServicoPrestado.HaExportacaoImunidadeNaoIncidencia']/../span/i
+SERV_DESCRICAO=#ServicoPrestado_Descricao
+SERV_NBS=//*[@id='ServicoPrestado_CodigoNBS_chosen']/a/div/b
+SERV_NBS_SRC=//*[@id='ServicoPrestado_CodigoNBS_chosen']/div/div/input
+SERV_NBS_OPT=//*[@id='ServicoPrestado_CodigoNBS_chosen']/div/ul/li
+SERV_OBRA_RDB=//*[@name='Obra.TipoInformacao']/../span/i
+SERV_OBRA_TXT=//*[@name='Obra.CodigoObra']
+SERV_AVANCAR=//*[contains(@class, 'comandos')]/button
+# Page 'Valuation'
+VAL_VALORES=//*[@name='Valores.ValorServico']
+VAL_ISSQN=//*[@name='ISSQN.HaSuspensao']/../span/i
+VAL_RETIDO=//*[@name='ISSQN.HaRetencao']/../span/i
+VAL_TOMADOR=//*[@name='ISSQN.TipoRetencao']/../span/i
+VAL_BENEFICIARIO=//*[@name='ISSQN.HaBeneficioMunicipal']/../span/i
+VAL_DEDUCAO=//*[@name='ISSQN.HaDeducaoReducao']/../span/i
+VAL_ALIQUOTA=#TributacaoFederal_PISCofins_SituacaoTributaria_chosen
+VAL_ALIQUOTA_OPT=//*[@id='TributacaoFederal_PISCofins_SituacaoTributaria_chosen']/div/ul/li
+VAL_ALIQUOTA_BASE=//*[@name='TributacaoFederal.PISCofins.BaseDeCalculo']
+VAL_ALIQUOTA_PIS=//*[@name='TributacaoFederal.PISCofins.AliquotaPIS']
+VAL_ALIQUOTA_COFINS=//*[@name='TributacaoFederal.PISCofins.AliquotaCOFINS']
+VAL_RETENCAO_PCC_TIPO=#TributacaoFederal_PISCofins_TipoRetencao_chosen
+VAL_RETENCAO_PCC_TIPO_OPT=//*[@id='TributacaoFederal_PISCofins_TipoRetencao_chosen']/div/ul/li
+VAL_RETENCAO_IRPJ_VAL=//*[@name='TributacaoFederal.ValorIRRF']
+VAL_RETENCAO_PCC_VAL=//*[@name='TributacaoFederal.ValorCSLL']
+VAL_RETENCAO_INSS_VAL=//*[@name='TributacaoFederal.ValorCP']
+VAL_TRIBUTOS_TIPO=//*[@name='ValorTributos.TipoValorTributos']/../span/i
+VAL_TRIBUTOS_FEDERAL=//*[@name='ValorTributos.PercentualTotalFederal']
+VAL_TRIBUTOS_ESTADUAL=//*[@name='ValorTributos.PercentualTotalEstadual']
+VAL_TRIBUTOS_MUNINCIPAL=//*[@name='ValorTributos.PercentualTotalMunicipal']
+VAL_AVANCAR=//*[contains(@class, 'comandos')]/button
+# Page 'Emit'
+EMIT_DICTIONARY=//*[contains(@class, 'emissao-conteudo')]/ul/li/span[?]
+EMIT_GENERATE=#btnProsseguir
+EMIT_NFE_NUM=//*[contains(@class, 'pnlCollapse')]/div/dl/dd[?]
+EMIT_XML_SAVE=#btnDownloadXml
+EMIT_PDF_SAVE=#btnDownloadDANFSE
+EMIT_NFE_NEW=#btnNovaNFSe
