@@ -46,3 +46,9 @@ def show_popup_debug(message: str) -> None:
     logger.debug(message)
     if DEV_ENV:
         messagebox.showinfo('Debug!', message=message)
+
+def show_popup_ask(message: str) -> bool:
+    ''' Function to ask confirmation about some info '''
+    response = messagebox.askokcancel('Info!', message=message)
+    logger.info('Ask: %s, Response: %s', message, response)
+    return response
