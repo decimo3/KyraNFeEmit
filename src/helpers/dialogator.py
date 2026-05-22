@@ -4,8 +4,12 @@ import sys
 import logging
 import datetime
 from logging import FileHandler
-from tkinter import messagebox
+from tkinter import Tk, messagebox
 from helpers.constants import BASE_FOLDER, APPNAME, DEV_ENV
+
+root = Tk()
+root.withdraw()
+root.attributes('-topmost', True)
 
 logger = logging.getLogger(APPNAME)
 logspath = os.path.join(BASE_FOLDER, 'logs')
