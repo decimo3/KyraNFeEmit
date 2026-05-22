@@ -8,7 +8,7 @@ back
 
 *chrome*
 
-
+*.bak
 *.pyc
 *.spec
 *.zip
