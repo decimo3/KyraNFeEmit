@@ -16,6 +16,7 @@ def page1_people(handler: WebHandler, data: DataModel) -> None:
     #handler.select_radio('EMIT_EMITENTE_RDB', 'CURTO', 1) # Disabled
     handler.select_radio('EMIT_TOMADOR_RDB', 'CURTO', 2)
     handler.get_element('EMIT_TOMADOR_BTN', 'CURTO').click()
+    handler.loading_wait('NFSE_LOAD', 'CURTO')
     tomadores = handler.get_elements('EMIT_TOMADOR_LIST_ROW', 'CURTO')
     if tomadores is None:
         raise throw_popup_error(
