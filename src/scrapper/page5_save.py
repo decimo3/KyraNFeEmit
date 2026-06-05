@@ -2,7 +2,7 @@
 import os
 from pathlib import Path
 from helpers.constants import CONFIGS, BASE_FOLDER, VERDADEIROS
-from helpers.dialogator import show_popup_ask, throw_popup_error
+from helpers.dialogator import show_popup_ask, throw_popup_error, show_popup_info
 from scrapper.webhandler import WebHandler
 from scrapper.download import download_file
 
@@ -35,9 +35,11 @@ def page5_save(handler: WebHandler, filepath: Path) -> None:
     filepath.replace(destpath / filepath.name)
 
     handler.get_element('EMIT_XML_SAVE', 'CURTO').click()
+    show_popup_info('Aguardando liberação...')
     download_file(download_dir, destpath)
 
     handler.get_element('EMIT_PDF_SAVE', 'CURTO').click()
+    show_popup_info('Aguardando liberação...')
     download_file(download_dir, destpath)
 
     handler.get_element('EMIT_NFE_NEW', 'CURTO').click()
