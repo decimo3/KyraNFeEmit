@@ -43,7 +43,7 @@ if __name__ == '__main__':
     dat_path = Path(str(CONFIGS.get('DATAPATH', '')))
     dat_files = list(dat_path.rglob('*.xls'))
 
-    pattern = re.compile(r'^\d{10}\.xls$')
+    pattern = re.compile(r'^(?:\d{10}|\d{4}\s\d{4})\.xls$')
 
     for dat_file in dat_files:
         try:
