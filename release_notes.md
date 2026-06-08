@@ -1,5 +1,5 @@
-# Fix InterceptedClickException
+# Fix InterceptedClickException 2
 
-The error ocurrs when selecting 'Tomador' from list on page 'Pessoas'.
+This error occurred when the [EMIT_AVANCAR](src/nfe_bot.path#L25) button was clicked before the modal dialog had fully closed.
 
-Adding a delay before interact, the error was fixed.
+To resolve the issue, the program now waits for the modal to disappear before attempting further interactions. This prevents premature clicks and eliminates the `InterceptedClickException`.
