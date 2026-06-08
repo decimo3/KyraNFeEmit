@@ -28,5 +28,7 @@ def page1_people(handler: WebHandler, data: DataModel) -> None:
             #tomador.click()
             handler.get_element('EMIT_TOMADOR_LIST_RDB', 'CURTO', None, i).click()
             handler.get_element('EMIT_TOMADOR_IMPORT_BTN', 'CURTO').click()
+    # Wait until TOMADOR_LIST modal was desapear
+    handler.loading_wait('EMIT_TOMADOR_LIST_ROW', 'CURTO')
     #handler.select_radio('EMIT_INTERMEDIARIO', 'CURTO', 1) # Disabled
     handler.get_element('EMIT_AVANCAR', 'CURTO').click()
