@@ -12,7 +12,7 @@ root.withdraw()
 iconpath = (
     os.path.join(BASE_FOLDER, 'nfe_bot.ico')
         if not DEV_ENV else
-    os.path.abspath('nfe_bot.ico')
+    os.path.abspath('../nfe_bot.ico')
 )
 root.iconbitmap(iconpath)
 root.attributes('-topmost', True)
