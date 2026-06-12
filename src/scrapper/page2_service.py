@@ -48,7 +48,10 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
     formated_desc = str(data.cotas_impostos['DESCRICAO']).format(
         contrato = data.contrato,
         pedido = data.pedido,
-        conformidade = str(int(data.conformidade)),
+        conformidade = (str(int(
+            data.conformidade
+            if data.tomador == 'AMPLA' else
+            data.pedido))),
         valor_cmo = norm_float(data.valor_total * data.cotas_impostos['CMO']),
         valor_inss = norm_float(
             data.valor_total *
