@@ -28,7 +28,7 @@ def page4_emit(handler: WebHandler, data: DataModel) -> None:
     # Check
 
     if data.cotas_impostos['ISS'] > 0:
-        value_issqn_expected = data.valor_total * float(data.data['ISS'])
+        value_issqn_expected = data.valor_total * float(data.cotas_impostos['ISS'])
         value_issqn_calculated = kv_dict['ISSQN (Retido):']
         if (value_issqn_calculated - value_issqn_expected) > VALUE_TOLERANCE:
             raise throw_popup_error(ValueError(
