@@ -13,7 +13,12 @@ def norm_txt(text: str) -> str:
 
 def norm_float(number: float | int) -> str:
     ''' Function to normalize float '''
-    return f'{number:.2f}'.replace('.', ',')
+    return str(
+        f'{number:,.2f}'
+            .replace(',', '_')
+            .replace('.', ',')
+            .replace('_', '.')
+        )
 
 def norm_money(value: str) -> float:
     ''' Function to convert brazilian monetary string to float '''
