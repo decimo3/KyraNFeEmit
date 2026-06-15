@@ -17,22 +17,14 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
         handler.select_search('SERV_ESTADO', 'CURTO', data.municipio + '/RJ')
 
     handler.get_element('SERV_CODIGO', 'CURTO').click()
-    # FIXME - Adicionar a condição para concessionária LIGHT
-    if data.tomador == 'AMPLA' and data.codigo == '0711':
+    if data.codigo == '0711':
         handler.select_search('SERV_CODIGO', 'CURTO', '07.11.02')
         handler.get_element('SERV_ADICIONAL', 'CURTO').click()
         if not handler.get_elements('SERV_ADICIONAL_OPT', 'CURTO'):
             handler.get_element('SERV_ADICIONAL', 'CURTO').click()
         handler.select_option('SERV_ADICIONAL_OPT', 'CURTO', '07.11.02.002')
 
-    elif data.tomador == 'AMPLA' and data.codigo == '0702' and data.code_complementar:
-        handler.select_search('SERV_CODIGO', 'CURTO', data.code_complementar['Code'])
-        handler.get_element('SERV_ADICIONAL', 'CURTO').click()
-        if not handler.get_elements('SERV_ADICIONAL_OPT', 'CURTO'):
-            handler.get_element('SERV_ADICIONAL', 'CURTO').click()
-        handler.select_option('SERV_ADICIONAL_OPT', 'CURTO', data.code_complementar['Complementar'])
-
-    elif data.tomador == 'LIGHT' and data.code_complementar:
+    elif data.code_complementar:
         handler.select_search('SERV_CODIGO', 'CURTO', data.code_complementar['Code'])
         handler.get_element('SERV_ADICIONAL', 'CURTO').click()
         if not handler.get_elements('SERV_ADICIONAL_OPT', 'CURTO'):
@@ -69,7 +61,7 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
     handler.select_option('SERV_NBS_OPT', 'CURTO',
             str(int(data.cotas_impostos['NBS'])))
 
-    if not data.codigo == '0711':
+    if data.codigo == '0702':
         handler.select_radio('SERV_OBRA_RDB', 'CURTO', 1)
         handler.get_element('SERV_OBRA_TXT', 'CURTO', 'COI')
 
