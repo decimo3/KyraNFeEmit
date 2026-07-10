@@ -11,7 +11,7 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
     #handler.select_option('SERV_NACAO_OPT', 'CURTO', 'Brasil')
 
     handler.get_element('SERV_ESTADO', 'CURTO').click()
-    if data.tomador == 'AMPLA' and data.codigo == '0711':
+    if data.tomador == 'AMPLA' and data.codigo in {'0711', '0703'}:
         handler.select_search('SERV_ESTADO', 'CURTO', 'Rio de Janeiro/RJ')
     else:
         handler.select_search('SERV_ESTADO', 'CURTO', data.municipio + '/RJ')
@@ -23,6 +23,13 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
         if not handler.get_elements('SERV_ADICIONAL_OPT', 'CURTO'):
             handler.get_element('SERV_ADICIONAL', 'CURTO').click()
         handler.select_option('SERV_ADICIONAL_OPT', 'CURTO', '07.11.02.002')
+
+    elif data.codigo == '0703':
+        handler.select_search('SERV_CODIGO', 'CURTO', '07.03.02')
+        handler.get_element('SERV_ADICIONAL', 'CURTO').click()
+        if not handler.get_elements('SERV_ADICIONAL_OPT', 'CURTO'):
+            handler.get_element('SERV_ADICIONAL', 'CURTO').click()
+        handler.select_option('SERV_ADICIONAL_OPT', 'CURTO', '07.03.02.002')
 
     elif data.code_complementar:
         handler.select_search('SERV_CODIGO', 'CURTO', data.code_complementar['Code'])
