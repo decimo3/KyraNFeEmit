@@ -99,12 +99,17 @@ class DataModel:
 
     def get_ext_info(self, ext: pandas.DataFrame) -> None:
         ''' Method to extract complementary code '''
-        ext_info = ext[ext['Municipio'] == self.municipio]
+        ext_info = ext[
+            (ext['Tomador'] == self.tomador) &
+            (ext['Municipio'] == self.municipio) &
+            (ext['Code'] == self.codigo)
+        ]
         if ext_info.empty:
             self.code_complementar = {}
             return
         if not len(ext_info) == 1:
             error_message = 'Foram retornados mais de um resultado!\n\n'
-            error_message += f'Critério: {self.municipio}, Quantidade: {len(ext_info)}'
+            error_message += f'Critérios: Tomador {self.tomador}, Municipio {self.municipio}'
+            error_message += f', Code {self.codigo}. Quantidade: {len(ext_info)}'
             raise throw_popup_error(ValueError(error_message))
         self.code_complementar = ext_info.iloc[0].to_dict()
