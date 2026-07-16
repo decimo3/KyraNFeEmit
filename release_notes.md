@@ -1,5 +1,9 @@
-# Implementação do código de tributação 0703 e atualização do padrão de arquivo da LIGHT
+# Adicionada separação de códigos complementares por tomador e código base
 
-O programa agora será capaz de realizar a emisssão de notas com código tributário 0703, conforme as regras.
+O programa agora separa o código complementar por tomador e código base além do município.
 
-Além disso, o padrão do nome do arquivo da medição da Light foi alterado devido ao acréscimo de um dígito no número da referência.
+Isso se tornou necessário por conflitos de execução de atividades na mesma localidade por mais de um tomador.
+
+Foi acrescentada as colunas `Tomador` e `Codigo` na estrutura da planilha `Codes Complementares por Municipio.xls`, que será utilizada para coletar o código complementar.
+
+O uso dessa nova versão sem a atualização da estrutura da planilha causará o erro: "KeyError: 'Tomador'".
