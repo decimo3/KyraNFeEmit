@@ -32,7 +32,7 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
         handler.select_option('SERV_ADICIONAL_OPT', 'CURTO', '07.03.02.002')
 
     elif data.code_complementar:
-        handler.select_search('SERV_CODIGO', 'CURTO', data.code_complementar['Code'])
+        handler.select_search('SERV_CODIGO', 'CURTO', data.code_complementar['Codigo'])
         handler.get_element('SERV_ADICIONAL', 'CURTO').click()
         if not handler.get_elements('SERV_ADICIONAL_OPT', 'CURTO'):
             handler.get_element('SERV_ADICIONAL', 'CURTO').click()
