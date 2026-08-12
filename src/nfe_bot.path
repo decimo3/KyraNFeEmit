@@ -12,16 +12,21 @@ AUTH_PASSWD=#Senha
 AUTH_BUTTON=.btn-primary
 # Page 'People'
 EMIT_SITE=https://www.nfse.gov.br/EmissorNacional/DPS/Pessoas
+EMIT_IBS_CBS=//*[@name='PreencherInfoIBSCBS']/../span/i
 EMIT_COMPETENCIA=#DataCompetencia
 EMIT_HEADER=navbar-header
 EMIT_EMITENTE_RDB=//*[@name='TipoEmitente']
+EMIT_EMITENTE_INFO_BTN=#btnMaisInfoEmitente
+EMIT_EMITENTE_NUMBER_TXT=#Prestador_EnderecoNacional_Numero
+EMIT_GOVERNAMENTAL_COMPRA=//*[@name='EhCompraGovernamental']/../span/i
 EMIT_TOMADOR_RDB=//*[@name='Tomador.LocalDomicilio']/../span/i
 EMIT_TOMADOR_BTN=#btn_Tomador_Inscricao_historico
 EMIT_TOMADOR_LIST_ROW=//*[contains(@class, 'tabela-favoritos')]/tbody/tr
 EMIT_TOMADOR_LIST_TXT=//*[contains(@class, 'tabela-favoritos')]/tbody/tr[?]/td[3]/div
 EMIT_TOMADOR_LIST_RDB=//*[contains(@class, 'tabela-favoritos')]/tbody/tr[?]/td[1]/div
 EMIT_TOMADOR_IMPORT_BTN=#btnImportar
-EMIT_INTERMEDIARIO=//*[@name='Intermediario_LocalDomicilio']
+EMIT_DESTINATARIO_IBS_CBS=//*[@name='DestinatarioEhOAdquirente']/../span/i
+EMIT_INTERMEDIARIO=//*[@name='Intermediario_LocalDomicilio']/../span/i
 EMIT_AVANCAR=#btnAvancar
 # Page 'Service'
 SERV_NACAO=#LocalPrestacao_CodigoPaisPrestacao
