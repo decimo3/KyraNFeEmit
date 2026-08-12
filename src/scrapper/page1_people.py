@@ -19,7 +19,7 @@ def page1_people(handler: WebHandler, data: DataModel) -> None:
     number = handler.get_element('EMIT_EMITENTE_NUMBER_TXT', 'CURTO').get_attribute("value")
     handler.get_element('EMIT_EMITENTE_NUMBER_TXT', 'CURTO', str(number).replace('.',''))
     #handler.select_radio('EMIT_GOVERNAMENTAL_COMPRA', 'CURTO', 1) # Disabled
-    handler.select_radio('EMIT_TOMADOR_RDB', 'CURTO', 2)
+    handler.select_radio('EMIT_TOMADOR_RDB', 'CURTO', 1)
     handler.get_element('EMIT_TOMADOR_BTN', 'CURTO').click()
     handler.loading_wait('NFSE_LOAD', 'CURTO')
     tomadores = handler.get_elements('EMIT_TOMADOR_LIST_ROW', 'CURTO')
