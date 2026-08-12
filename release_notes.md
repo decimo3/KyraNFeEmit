@@ -1,9 +1,13 @@
-# Adicionada separação de códigos complementares por tomador e código base
+# Atualização devido a mudança no portal do Emissor Nacional
 
-O programa agora separa o código complementar por tomador e código base além do município.
+O programa foi atualizado para incluir e atualizar alguns campos:
 
-Isso se tornou necessário por conflitos de execução de atividades na mesma localidade por mais de um tomador.
+- Adicionado click "não" no rádio `PreencherInfoIBSCBS`;
+- Adicionado click no botão `btnMaisInfoEmitente`;
+- Alteração do texto em `Prestador_EnderecoNacional_Numero`;
+- Adicionado caminho do rádio `EhCompraGovernamental` caso necessário;
+- Adicionado caminho do rádio `DestinatarioEhOAdquirente` caso necessário;
+- Não foi necessário atualizar o caminho de `ServicoPrestado_CodigoNBS_chosen`;
+- Corrigido a obtenção da cota de ISS para verificação do `Valor líquido da NFS-e`.
 
-Foi acrescentada as colunas `Tomador` e `Codigo` na estrutura da planilha `Codes Complementares por Municipio.xls`, que será utilizada para coletar o código complementar.
-
-O uso dessa nova versão sem a atualização da estrutura da planilha causará o erro: "KeyError: 'Tomador'".
+> Não foi possível coletar o caminho para os campos `Código da Situação Tributária` e `Código da Classificação Tributária` devido os mesmos estarem desabilitados.
