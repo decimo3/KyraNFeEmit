@@ -37,7 +37,7 @@ def page3_values(handler: WebHandler, data: DataModel) -> None:
     if not handler.get_elements('VAL_RETENCAO_PCC_TIPO_OPT', 'CURTO'):
         handler.get_element('VAL_RETENCAO_PCC_TIPO', 'CURTO').click()
     handler.select_option('VAL_RETENCAO_PCC_TIPO_OPT', 'CURTO',
-            'PIS/COFINS/CSLL Retidos')
+            '3 - PIS/COFINS/CSLL Retidos')
 
     irpf_value = norm_float(data.valor_total * data.cotas_impostos['IRPJ'])
     handler.get_element('VAL_RETENCAO_IRPJ_VAL', 'CURTO', irpf_value)
