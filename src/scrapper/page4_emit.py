@@ -69,7 +69,7 @@ def page4_emit(handler: WebHandler, data: DataModel) -> None:
         float(value_irpj_expected) +
         float(value_ifcs_expected) +
         float(value_inss_expected) +
-        (float(data.valor_total * float(data.cotas_impostos['ISS'])) if data.cotas_impostos['ISS'] > 0 else 0)
+        (float(data.valor_total * float(data.data['ISS'])) if data.cotas_impostos['ISS'] > 0 else 0)
     ))
     if (kv_dict['Valor líquido da NFS-e:'] - value_liquido_expected) > VALUE_TOLERANCE:
         raise throw_popup_error(ValueError(
