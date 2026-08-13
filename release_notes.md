@@ -1,13 +1,7 @@
-# Atualização devido a mudança no portal do Emissor Nacional
+# Correção de correção errônea
 
-O programa foi atualizado para incluir e atualizar alguns campos:
+O programa apresentou erros, informando que o valor líquido não corresponde ao valor esperado, porém o valor líquido está correto. O mesmo foi causado por uma correção errônea na fórmula de cálculo da verificação do valor líquido.
 
-- Adicionado click "não" no rádio `PreencherInfoIBSCBS`;
-- Adicionado click no botão `btnMaisInfoEmitente`;
-- Alteração do texto em `Prestador_EnderecoNacional_Numero`;
-- Adicionado caminho do rádio `EhCompraGovernamental` caso necessário;
-- Adicionado caminho do rádio `DestinatarioEhOAdquirente` caso necessário;
-- Não foi necessário atualizar o caminho de `ServicoPrestado_CodigoNBS_chosen`;
-- Corrigido a obtenção da cota de ISS para verificação do `Valor líquido da NFS-e`.
+Utilizei cota de imposto para ISS informado na planilha `Cota de Impostos Estruturados.xls` ao invés de utilizar o valor anexado a planilha pelo município, conforme feito pelo programa AndreWorkSheetSplitter que utiliza a planilha `ISS.xls` com os valores corretos.
 
-> Não foi possível coletar o caminho para os campos `Código da Situação Tributária` e `Código da Classificação Tributária` devido os mesmos estarem desabilitados.
+> Ratifico que o engano foi cometido somente na fórmula de verificação de valores e não altera o preenchimento do formulário.
