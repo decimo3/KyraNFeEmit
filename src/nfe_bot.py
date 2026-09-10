@@ -7,7 +7,7 @@ from helpers.runchecker import instance_checker
 from helpers.updater import update_chromedriver
 from helpers.constants import CONFIGS, BASE_FOLDER
 from helpers.excelhandler import get_dataframe_from_excel
-from helpers.dialogator import show_popup_info
+from helpers.dialogator import show_popup_info, show_popup_error
 from helpers.datamodel import DataModel
 from scrapper.webhandler import WebHandler, ElementNotFoundException
 from scrapper.authentication import authentication
@@ -65,6 +65,6 @@ if __name__ == '__main__':
             page3_values(handler, data_model)
             page4_emit(handler, data_model)
             page5_save(handler, dat_file)
-        except ValueError, ElementNotFoundException:
-            pass
+        except (ValueError, ElementNotFoundException) as e:
+            show_popup_error(str(e))
     show_popup_info('Programa finalizado!')
