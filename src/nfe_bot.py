@@ -67,4 +67,5 @@ if __name__ == '__main__':
             page5_save(handler, dat_file)
         except (ValueError, ElementNotFoundException) as e:
             show_popup_error(str(e))
+    handler.driver.quit()
     show_popup_info('Programa finalizado!')
