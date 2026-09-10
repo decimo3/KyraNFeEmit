@@ -44,6 +44,14 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
 
     handler.select_radio('SERV_ISSQN', 'CURTO', 1)
 
+    handler.get_element('SERV_NBS', 'CURTO').click()
+    if not handler.get_elements('SERV_NBS_OPT', 'CURTO'):
+        handler.get_element('SERV_NBS', 'CURTO').click()
+    handler.get_element('SERV_NBS_SRC', 'CURTO',
+            str(int(data.cotas_impostos['NBS'])))
+    handler.select_option('SERV_NBS_OPT', 'CURTO',
+            str(int(data.cotas_impostos['NBS'])))
+
     formated_desc = str(data.cotas_impostos['DESCRICAO']).format(
         contrato = data.contrato,
         pedido = data.pedido,
@@ -59,14 +67,6 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
         municipio = data.municipio.upper()
     )
     handler.get_element('SERV_DESCRICAO', 'CURTO', formated_desc)
-
-    handler.get_element('SERV_NBS', 'CURTO').click()
-    if not handler.get_elements('SERV_NBS_OPT', 'CURTO'):
-        handler.get_element('SERV_NBS', 'CURTO').click()
-    handler.get_element('SERV_NBS_SRC', 'CURTO',
-            str(int(data.cotas_impostos['NBS'])))
-    handler.select_option('SERV_NBS_OPT', 'CURTO',
-            str(int(data.cotas_impostos['NBS'])))
 
     if data.codigo == '0702':
         handler.select_radio('SERV_OBRA_RDB', 'CURTO', 1)
