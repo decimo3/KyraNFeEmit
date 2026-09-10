@@ -28,7 +28,7 @@ def get_dataframe_from_excel(file_path: str, skipt_rows: int = 0) -> pandas.Data
     # Body: consume remaining rows from generator
     body = [[cell.value for cell in row] for row in rows_gen]
     dataframe = pandas.DataFrame(body, columns=head)
-    show_popup_debug('Planilha carregada em memória com sucesso!')
+    show_popup_debug(f'Planilha {file_path} carregada em memória com sucesso!')
     return dataframe
 
 def find_column(df: pandas.DataFrame, column_list_key: str) -> str:
@@ -39,4 +39,5 @@ def find_column(df: pandas.DataFrame, column_list_key: str) -> str:
     for column in df.columns:
         if column in possible_names:
             return column
-    raise ValueError('A coluna não foi encontrada pelos critérios!')
+    raise ValueError(
+        f'A coluna {column_list_key} não foi encontrada pelos critérios {possible_names}!')

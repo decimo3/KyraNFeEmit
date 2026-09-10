@@ -70,7 +70,8 @@ class DataModel:
 
         if dat[cof_column].nunique() != 1:
             raise throw_popup_error(ValueError(
-                'A planilha contém mais de uma conformidade!'))
+                'A planilha contém mais de uma conformidade!'
+                f'\n\n{dat[cof_column].dropna().unique().tolist()}'))
 
     def get_iss_info(self, iss: pandas.DataFrame) -> None:
         ''' Method to extract iss tax info '''
@@ -81,8 +82,7 @@ class DataModel:
             self.municipio = self.get_correct_city_name(self.municipio)
             return
         if not len(iss_info) == 1:
-            error_message = 'Foram retornados mais de um resultado!\n\n'
-            error_message += f'Critério: {self.municipio}, Quantidade: {len(iss_info)}'
+            error_message = 'Foi retornado nenhum ou mais de um resultado para "ISS por Município"!'
             raise throw_popup_error(ValueError(error_message))
         self.iss_data = iss_info.iloc[0].to_dict()
         self.municipio = self.get_correct_city_name(self.iss_data['MUNICÍPIO'])
@@ -91,9 +91,7 @@ class DataModel:
         ''' Method to extract tax information '''
         tax_info = tax[(tax['TOMADOR'] == self.tomador) & (tax['CODE'] == self.codigo)]
         if not len(tax_info) == 1:
-            error_message = 'Foram retornados nenhum ou mais de um resultado!\n\n'
-            error_message += f'Critérios: Tomador {self.tomador}, Código: {self.codigo},'
-            error_message += f' Quantidade: {len(tax_info)}'
+            error_message = 'Foi retornado nenhum ou mais de um resultado para "Cota de Imposto"!'
             raise throw_popup_error(ValueError(error_message))
         self.cotas_impostos = tax_info.iloc[0].to_dict()
 
@@ -108,8 +106,6 @@ class DataModel:
             self.code_complementar = {}
             return
         if not len(ext_info) == 1:
-            error_message = 'Foram retornados mais de um resultado!\n\n'
-            error_message += f'Critérios: Tomador {self.tomador}, Municipio {self.municipio}'
-            error_message += f', Code {self.codigo}. Quantidade: {len(ext_info)}'
+            error_message = 'Foi retornado mais de um resultado para "Código Complementar"!'
             raise throw_popup_error(ValueError(error_message))
         self.code_complementar = ext_info.iloc[0].to_dict()
