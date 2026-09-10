@@ -7,8 +7,7 @@ from scrapper.webhandler import WebHandler, ElementNotFoundException
 
 def page1_people(handler: WebHandler, data: DataModel) -> None:
     ''' Method to handle with the first page 'Pessoas' '''
-    website = str(WAYPATH.get('EMIT_SITE', ''))
-    handler.driver.get(website)
+    handler.driver.get(str(WAYPATH.get('EMIT_SITE', '')))
     handler.select_radio('EMIT_IBS_CBS', 'CURTO', 2)
     current_date = datetime.datetime.now()
     handler.get_element('EMIT_COMPETENCIA', 'CURTO', current_date)
