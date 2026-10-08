@@ -52,6 +52,14 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
     handler.select_option('SERV_NBS_OPT', 'CURTO',
             str(int(data.cotas_impostos['NBS'])))
 
+    handler.get_element('SERV_CIO', 'CURTO').click()
+    if not handler.get_elements('SERV_CIO_OPT', 'CURTO'):
+        handler.get_element('SERV_CIO', 'CURTO').click()
+    handler.get_element('SERV_CIO_SRC', 'CURTO',
+            '100301 - Demais serviços')
+    handler.select_option('SERV_CIO_OPT', 'CURTO',
+            '100301 - Demais serviços')
+
     formated_desc = str(data.cotas_impostos['DESCRICAO']).format(
         contrato = data.contrato,
         pedido = data.pedido,

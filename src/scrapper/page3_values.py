@@ -48,6 +48,20 @@ def page3_values(handler: WebHandler, data: DataModel) -> None:
     inss_value = norm_float(data.valor_total * data.cotas_impostos['CMO'] * data.cotas_impostos['INSS'])
     handler.get_element('VAL_RETENCAO_INSS_VAL', 'CURTO', inss_value)
 
+    handler.get_element('VAL_SITUACAO', 'CURTO').click()
+    if not handler.get_elements('VAL_SITUACAO_OPT', 'CURTO'):
+        handler.get_element('VAL_SITUACAO', 'CURTO').click()
+    handler.get_element('VAL_SITUACAO_SRC', 'CURTO',
+            '000 - Tributação integral')
+    handler.select_option('VAL_SITUACAO_OPT', 'CURTO',
+            '000 - Tributação integral')
+
+    handler.get_element('VAL_CLASSIFICA', 'CURTO').click()
+    if not handler.get_elements('VAL_CLASSIFICA_OPT', 'CURTO'):
+        handler.get_element('VAL_CLASSIFICA', 'CURTO').click()
+    handler.select_option('VAL_CLASSIFICA_OPT', 'CURTO',
+            '000001 - Situações tributadas')
+
     handler.select_radio('VAL_TRIBUTOS_TIPO', 'CURTO', 2)
     handler.get_element('VAL_TRIBUTOS_FEDERAL', 'CURTO',
             norm_float(data.cotas_impostos['FEDERAIS'] * 100))

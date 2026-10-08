@@ -8,7 +8,7 @@ from scrapper.webhandler import WebHandler, ElementNotFoundException
 def page1_people(handler: WebHandler, data: DataModel) -> None:
     ''' Method to handle with the first page 'Pessoas' '''
     handler.driver.get(str(WAYPATH.get('EMIT_SITE', '')))
-    handler.select_radio('EMIT_IBS_CBS', 'CURTO', 2)
+    handler.select_radio('EMIT_IBS_CBS', 'CURTO', 1)
     current_date = datetime.datetime.now()
     handler.get_element('EMIT_COMPETENCIA', 'CURTO', current_date)
     handler.get_element('EMIT_AVANCAR', 'CURTO').click()
@@ -17,7 +17,7 @@ def page1_people(handler: WebHandler, data: DataModel) -> None:
     handler.get_element('EMIT_EMITENTE_INFO_BTN', 'CURTO').click()
     number = handler.get_element('EMIT_EMITENTE_NUMBER_TXT', 'CURTO').get_attribute("value")
     handler.get_element('EMIT_EMITENTE_NUMBER_TXT', 'CURTO', str(number).replace('.',''))
-    #handler.select_radio('EMIT_GOVERNAMENTAL_COMPRA', 'CURTO', 1) # Disabled
+    handler.select_radio('EMIT_GOVERNAMENTAL_COMPRA', 'CURTO', 2)
     handler.select_radio('EMIT_TOMADOR_RDB', 'CURTO', 1)
     handler.get_element('EMIT_TOMADOR_BTN', 'CURTO').click()
     handler.loading_wait('NFSE_LOAD', 'CURTO')
@@ -34,6 +34,6 @@ def page1_people(handler: WebHandler, data: DataModel) -> None:
             handler.get_element('EMIT_TOMADOR_IMPORT_BTN', 'CURTO').click()
     # Wait until TOMADOR_LIST modal was desapear
     handler.loading_wait('EMIT_TOMADOR_LIST_ROW', 'CURTO')
-    #handler.select_radio('EMIT_DESTINATARIO_IBS_CBS', 'CURTO', 1) # Disabled
+    handler.select_radio('EMIT_DESTINATARIO_IBS_CBS', 'CURTO', 1)
     #handler.select_radio('EMIT_INTERMEDIARIO', 'CURTO', 1) # Disabled
     handler.get_element('EMIT_AVANCAR', 'CURTO').click()
