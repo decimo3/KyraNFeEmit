@@ -56,11 +56,15 @@ def page3_values(handler: WebHandler, data: DataModel) -> None:
     handler.select_option('VAL_SITUACAO_OPT', 'CURTO',
             '000 - Tributação integral')
 
+    #handler.loading_wait('NFSE_LOAD', 'CURTO')
+
     handler.get_element('VAL_CLASSIFICA', 'CURTO').click()
     if not handler.get_elements('VAL_CLASSIFICA_OPT', 'CURTO'):
         handler.get_element('VAL_CLASSIFICA', 'CURTO').click()
     handler.select_option('VAL_CLASSIFICA_OPT', 'CURTO',
             '000001 - Situações tributadas')
+
+    #handler.loading_wait('NFSE_LOAD', 'CURTO')
 
     handler.select_radio('VAL_TRIBUTOS_TIPO', 'CURTO', 2)
     handler.get_element('VAL_TRIBUTOS_FEDERAL', 'CURTO',

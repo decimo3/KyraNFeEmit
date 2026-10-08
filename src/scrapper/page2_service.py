@@ -42,7 +42,11 @@ def page2_service(handler: WebHandler, data: DataModel) -> None:
         formated_code = data.codigo[0:2] + '.' + data.codigo[2:4] + '.02'
         handler.select_search('SERV_CODIGO', 'CURTO', formated_code)
 
+    #handler.loading_wait('NFSE_LOAD', 'CURTO')
+
     handler.select_radio('SERV_ISSQN', 'CURTO', 1)
+
+    handler.loading_wait('NFSE_LOAD', 'CURTO')
 
     handler.get_element('SERV_NBS', 'CURTO').click()
     if not handler.get_elements('SERV_NBS_OPT', 'CURTO'):
