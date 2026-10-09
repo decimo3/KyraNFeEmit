@@ -40,6 +40,9 @@ SERV_DESCRICAO=#ServicoPrestado_Descricao
 SERV_NBS=//*[@id='ServicoPrestado_CodigoNBS_chosen']/a/div/b
 SERV_NBS_SRC=//*[@id='ServicoPrestado_CodigoNBS_chosen']/div/div/input
 SERV_NBS_OPT=//*[@id='ServicoPrestado_CodigoNBS_chosen']/div/ul/li
+SERV_CIO=//*[@id='ServicoPrestado_CodigoIndOp_chosen']/a/div/b
+SERV_CIO_SRC=//*[@id='ServicoPrestado_CodigoIndOp_chosen']/div/div/input
+SERV_CIO_OPT=//*[@id='ServicoPrestado_CodigoIndOp_chosen']/div/ul/li
 SERV_OBRA_RDB=//*[@name='Obra.TipoInformacao']/../span/i
 SERV_OBRA_TXT=//*[@name='Obra.CodigoObra']
 SERV_AVANCAR=//*[contains(@class, 'comandos')]/button
@@ -60,6 +63,12 @@ VAL_RETENCAO_PCC_TIPO_OPT=//*[@id='TributacaoFederal_PISCofins_TipoRetencao_chos
 VAL_RETENCAO_IRPJ_VAL=//*[@name='TributacaoFederal.ValorIRRF']
 VAL_RETENCAO_PCC_VAL=//*[@name='TributacaoFederal.ValorCSLL']
 VAL_RETENCAO_INSS_VAL=//*[@name='TributacaoFederal.ValorCP']
+VAL_SITUACAO=//*[@id='ValorTributos_CodigoSituacaoTributaria_chosen']/a/div/b
+VAL_SITUACAO_SRC=//*[@id='ValorTributos_CodigoSituacaoTributaria_chosen']/div/div/input
+VAL_SITUACAO_OPT=//*[@id='ValorTributos_CodigoSituacaoTributaria_chosen']/div/ul/li
+VAL_CLASSIFICA=//*[@id='ValorTributos_CodigoClassificacaoTributaria_chosen']/a/div/b
+VAL_CLASSIFICA_SRC=//*[@id='ValorTributos_CodigoClassificacaoTributaria_chosen']/div/div/input
+VAL_CLASSIFICA_OPT=//*[@id='ValorTributos_CodigoClassificacaoTributaria_chosen']/div/ul/li
 VAL_TRIBUTOS_TIPO=//*[@name='ValorTributos.TipoValorTributos']/../span/i
 VAL_TRIBUTOS_FEDERAL=//*[@name='ValorTributos.PercentualTotalFederal']
 VAL_TRIBUTOS_ESTADUAL=//*[@name='ValorTributos.PercentualTotalEstadual']
